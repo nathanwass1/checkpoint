@@ -84,7 +84,8 @@
 
                 <div class="links">
                     <a href="/contacts">Contacts</a>
-                    <a href="https://laracasts.com">Films</a>
+                    <a href="/films">Films</a>
+                    <a href="/about">About</a>
                     
                 </div>
             </div>

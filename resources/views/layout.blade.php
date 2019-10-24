@@ -51,6 +51,7 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                text-align: bottom;
             }
 
             .m-b-md {
@@ -64,13 +65,12 @@
 <div class="container">
 @yield('content')
 </div>
-<div class="content">
     <div class="links">
         <li><a href="/">Home Page</a></li>
         <li><a href="/contacts">Contacts Page</a></li>
         <li><a href="/films">Films Page</a></li>
+        <li><a href="/about">About Page</a></li>
     </div>
-</div>
 @yield('Content')
 </body>
 </html>

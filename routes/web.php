@@ -18,3 +18,7 @@ Route::get('/', function () {
 
 Route::get('/contacts', 'PageController@contacts');
 
+Route::get('/about', 'PageController@about');
+
+Route::resource('Films', 'FilmController');
+
