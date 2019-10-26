@@ -22,3 +22,7 @@ Route::get('/about', 'PageController@about');
 
 Route::resource('Films', 'FilmController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
