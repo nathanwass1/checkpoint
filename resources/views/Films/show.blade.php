@@ -1,20 +1,25 @@
 @extends('layout')
 
 @section('content')
-<strong><h1 class="content">{{ $Film->Title }}</h1></strong>
 
+    <div class="content">
+    <strong><h1>{{ $Film->Title }}</h1></strong>
+    </div>
+<div class="content">
+<p>{{ $Film->Genre }}</p>
 
-<div class="content">{{ $Film->Genre }}</h1>
-
-<div class="content">{{ $Film->Synopsis }}</h1>
+<p>{{ $Film->Synopsis }}</p>
 
 
 <p>
 <a href="/Films/{{ $Film->id }}/edit">Edit </a>
 </p>
 
+</div>
+<div class="content">
+<h2>Order Food</h2>
 @if ($Film->Orders->count())
-<div>
+
     @foreach ($Film->Orders as $Order)
         <div>
             
@@ -38,7 +43,7 @@
 <form method="POST" action="/Films/{{ $Film->id }}/Orders" class="box">
 {{ csrf_field() }}
     <div class="field">
-        <label class="label" for="Item">New Item</label><br>
+        <label class="label" for="Item">Add to Order</label><br>
             <input type="text" class="input" name="Item" placeholder="New Item">
     </div>
     <div class="field">
