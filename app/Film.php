@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Film extends Model
 {
-    protected $guarded = [];
+    protected $fillable = ['Title', 'Genre', 'Synopsis'];
     
-    public function tasks(){
+    public function Orders(){
         
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Order::class);
         
     }
 
-public function addTask($task){
+public function addOrder($Order){
         
-        $this->tasks()->create($task);
+        $this->Orders()->create($Order);
         
     
 }

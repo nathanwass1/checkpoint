@@ -7,12 +7,11 @@
 
 <H1>Films</H1>
 <ul>
-@foreach($Films as $Films)
+@foreach($Films as $Film)
     <li>
-        <a href="/Films/{{ $Films->id }}">
-        {{ $Films->Title }} 
+        <a href="/Films/{{ $Film->id }}">
+        {{ $Film->Title }} 
     </li>
-    
 @endforeach
 </ul>
 

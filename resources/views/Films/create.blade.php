@@ -1,38 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
 @extends('layout')
-</head>
-<body>
-
+@section('content')
+<div class="content">
     <h1>Add New Film</h1>
+    </div>
 
   <form method ="POST" actions="/Films">
   
   {{ csrf_field() }}
   <div class="control">
-  <input type="text" name="title" placeholder="Film title" value="{{ old('Title') }}">
+  <input type="text" name="Title" placeholder="Film title" value="{{ old('Title') }}" required>
   </div>
   
   <div class="control">
-  <textarea name="Genre" placeholder="Genre"> {{ old('Genre') }}</textarea>
+  <textarea name="Genre" placeholder="Genre" required> {{ old('Genre') }}</textarea>
   </div>
   
    <div class="control">
-  <textarea name="Synopsis" placeholder="Synopsis"> {{ old('Synopsis') }}</textarea>
+  <textarea name="Synopsis" placeholder="Synopsis" required> {{ old('Synopsis') }}</textarea>
   </div>
   
-  <div>
+  <div class="content">
   <button type="submit">Create Project</button>
   </div>
     
-   
+   @include('errors')
   
   </form>
 
 
-
-
-
-</body>
+@endsection
 </html>

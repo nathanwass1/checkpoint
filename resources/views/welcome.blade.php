@@ -84,7 +84,7 @@
 
                 <div class="links">
                     <a href="/contacts">Contacts</a>
-                    <a href="/films">Films</a>
+                    <a href="/Films">Films</a>
                     <a href="/about">About</a>
                     
                 </div>

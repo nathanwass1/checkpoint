@@ -57,19 +57,24 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .control{
+                text-align: center;
+            }
             
         </style>
 @yield('style')
 </head>
 <body>
 <div class="container">
-@yield('content')
+
 </div>
+@yield('content')
     <div class="links">
         <li><a href="/">Home Page</a></li>
         <li><a href="/contacts">Contacts Page</a></li>
-        <li><a href="/films">Films Page</a></li>
+        <li><a href="/Films">Films Page</a></li>
         <li><a href="/about">About Page</a></li>
+        <li><a href="/Films/create">Add A Film </a></li>
     </div>
 @yield('Content')
 </body>

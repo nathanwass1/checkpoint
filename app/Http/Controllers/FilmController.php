@@ -38,9 +38,16 @@ class FilmController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        
+        //Film::create(request()->all());
+        
+        $validated = request()->validate(['Title' => ['required', 'min:1', 'max:100'], 'Genre' => ['required', 'min:1', 'max:25'],'Synopsis' => ['required', 'min:1', 'max:250']]);
+        //$validated['owner_id'] = auth()->id();
+        Film::create($validated);
+        
+        return redirect ('/Films');
     }
 
     /**
@@ -49,9 +56,9 @@ class FilmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Film $Film)
     {
-        //
+        return view('Films.show', compact('Film'));
     }
 
     /**
@@ -60,9 +67,9 @@ class FilmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Film $Film)
     {
-        //
+        return view ('Films.edit', compact ('Film'));
     }
 
     /**
@@ -72,9 +79,15 @@ class FilmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Film $Film)
     {
-        //
+        $Film->Title = request('Title');
+        $Film->Genre = request('Genre');        
+        $Film->Synopsis = request('Synopsis');
+        
+        $Film->save();
+        
+        return redirect ('/Films');
     }
 
     /**
@@ -83,8 +96,9 @@ class FilmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Film $Film)
     {
-        //
+         $Film->delete();
+         return redirect('/Films');
     }
 }

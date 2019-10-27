@@ -22,6 +22,13 @@ Route::get('/about', 'PageController@about');
 
 Route::resource('Films', 'FilmController');
 
+Route::post('/Films/create', 'FilmController@store');
+
+Route::post('Films/{Film}/Orders', 'OrderController@store');
+
+Route::patch('/Orders/{Order}', 'OrderController@update');
+
+
 
 Auth::routes();
 
