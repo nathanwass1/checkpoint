@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Film extends Model
 {
-    protected $fillable = ['Title', 'Genre', 'Synopsis'];
+    //protected $fillable = ['Title', 'Genre', 'Synopsis']; ##Removed to prevent SQL owner_id error.
+    protected $guarded = [];
     
     public function Orders(){
         

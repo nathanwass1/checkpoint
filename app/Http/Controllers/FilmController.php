@@ -13,9 +13,17 @@ class FilmController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function __construct(){
+        
+        $this->middleware('auth');
+    }
+    
+    
     public function index()
     {
-          $Films = Film::all();
+        
+          $Films = Film::where('owner_id', auth()->id()) ->get();
         
     
         
@@ -41,10 +49,8 @@ class FilmController extends Controller
     public function store()
     {
         
-        //Film::create(request()->all());
-        
         $validated = request()->validate(['Title' => ['required', 'min:1', 'max:100'], 'Genre' => ['required', 'min:1', 'max:25'],'Synopsis' => ['required', 'min:1', 'max:250']]);
-        //$validated['owner_id'] = auth()->id();
+        $validated['owner_id'] = auth()->id();
         Film::create($validated);
         
         return redirect ('/Films');
@@ -58,6 +64,16 @@ class FilmController extends Controller
      */
     public function show(Film $Film)
     {
+        
+        //$this->authorize('view', $Film);#### OO Method
+        //if ($Film->owner_id !== auth()->id()){#### Inline method
+           // abort(403);
+       // }
+       
+       if(\Gate::denies('view', $Film)){
+           abort(403);
+       }
+       
         return view('Films.show', compact('Film'));
     }
 
@@ -69,6 +85,9 @@ class FilmController extends Controller
      */
     public function edit(Film $Film)
     {
+          if(\Gate::denies('view', $Film)){
+           abort(403);
+       }
         return view ('Films.edit', compact ('Film'));
     }
 
