@@ -36,7 +36,7 @@
     @foreach ($Film->Orders as $Order)
         <div>
             
-            <form method="POST" action="/Orders/{{ $Order->id }}">
+            <form method="POST" action="/Orders/{{ $Order->id }}" class="box">
                 {{method_field('PATCH')}}
                 {{ csrf_field() }}
                 <label class="checkbox {{ $Order->Ordered ? 'is-complete' : '' }}" for="Ordered">

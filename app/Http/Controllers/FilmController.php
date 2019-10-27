@@ -85,7 +85,7 @@ class FilmController extends Controller
      */
     public function edit(Film $Film)
     {
-          if(\Gate::denies('view', $Film)){
+         if(\Gate::denies('view', $Film)){
            abort(403);
        }
         return view ('Films.edit', compact ('Film'));
