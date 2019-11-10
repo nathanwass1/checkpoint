@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Notifications\FilmSubscriptionPurchased;
+use App\User;
 
 class PageController extends Controller
 {
@@ -25,12 +27,21 @@ class PageController extends Controller
         
         
         
+        
     	return view ('about', ['options' => $options], ['example1' => $example1]);
     }
     
+public function welcome(){
+  
+    return view('welcome'); 
+}
 
-
+public function subscribe(){
+    $user = User::first();
+    $user->notify(new FilmSubscriptionPurchased);
+    return view('welcome');
     
+}  
     
     
 }

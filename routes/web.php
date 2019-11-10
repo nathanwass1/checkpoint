@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@welcome');
 
+Route::get('/subscribe', 'PageController@subscribe');
 
 Route::get('/contacts', 'PageController@contacts');
 
@@ -27,6 +26,7 @@ Route::post('/Films/create', 'FilmController@store');
 Route::post('Films/{Film}/Orders', 'OrderController@store');
 
 Route::patch('/Orders/{Order}', 'OrderController@update');
+
 
 
 

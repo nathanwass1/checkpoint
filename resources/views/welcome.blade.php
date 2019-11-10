@@ -86,6 +86,7 @@
                     <a href="/contacts">Contacts</a>
                     <a href="/Films">Films</a>
                     <a href="/about">About</a>
+                    <a href="/subscribe">Purchase Subscription</a>
                     
                 </div>
             </div>

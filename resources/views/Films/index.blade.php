@@ -21,5 +21,9 @@
     </li>
 @endforeach
 
+
 @endsection
+@if (session('message'))
+    <p>{{ session('message') }}</p>
+@endif
 </div>

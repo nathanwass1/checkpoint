@@ -18,7 +18,7 @@
 
        @endforeach
     </p>
-   
+  <img src="{{ URL::to('/public/img/Terminator2.jpg') }}">
 
     
 </div>

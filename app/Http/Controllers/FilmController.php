@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Film;
+
+use App\Events\FilmCreated;
 
 
 class FilmController extends Controller
@@ -51,8 +54,9 @@ class FilmController extends Controller
         
         $validated = request()->validate(['Title' => ['required', 'min:1', 'max:100'], 'Genre' => ['required', 'min:1', 'max:25'],'Synopsis' => ['required', 'min:1', 'max:250']]);
         $validated['owner_id'] = auth()->id();
-        Film::create($validated);
-        
+        $Film = Film::create($validated);
+       event(new FilmCreated($Film));
+       session()->flash('message', 'The film has been created...');
         return redirect ('/Films');
     }
 
