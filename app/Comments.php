@@ -9,4 +9,6 @@ class Comments extends Model
     public function post(){
         return $this->belongsTo(Post::class);
     }
+    
+   use Likable;
 }

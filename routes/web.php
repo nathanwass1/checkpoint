@@ -27,9 +27,9 @@ Route::post('Films/{Film}/Orders', 'OrderController@store');
 
 Route::patch('/Orders/{Order}', 'OrderController@update');
 
+Route::resource('reviews', 'ReviewsController');
 
-
-
+Auth::loginUsingId(1);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

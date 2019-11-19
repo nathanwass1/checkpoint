@@ -40,4 +40,11 @@ public function addOrder($Order){
     
 }
 
+ public function trailers (){
+        
+        return $this->morphMany(Trailer::class,'watchable');
+        
+        
+    }
+
 }

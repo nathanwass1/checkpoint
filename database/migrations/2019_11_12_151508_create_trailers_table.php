@@ -15,6 +15,7 @@ class CreateTrailersTable extends Migration
     {
         Schema::create('trailers', function (Blueprint $table) {
             $table->increments('id');
+            $table->morphs('watchable');
             $table->string('title');
             $table->text('description');
             $table->string('url');

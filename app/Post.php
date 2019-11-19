@@ -14,4 +14,6 @@ class Post extends Model
         return $this->belongsToMany(Rating::class);
     }
     
+    use Likable;
+    
 }
