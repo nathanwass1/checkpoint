@@ -1,7 +1,7 @@
 <?php
 
 namespace Tests\Feature;
-
+use App\Film;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -14,7 +14,7 @@ class FilmsTest extends TestCase
      *
      * @return void
      */
-  public function create_a_film(){
+  public function test_create_a_film(){
       $this->actingAs(factory('App\Film')->create());
       
       $this->post('/Films/create',[

@@ -1,12 +1,12 @@
 @component('mail::message')
-# Introduction
+New film has been added
 
-The body of your message.
+Thank you for adding a film.
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => 'https://route5y1r3f16-prod.webdev.aet.leedsbeckett.ac.uk/'])
+Home Page
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+Film Store inc
 @endcomponent

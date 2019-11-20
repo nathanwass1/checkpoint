@@ -110,7 +110,7 @@ class FilmController extends Controller
         $Film->Synopsis = request('Synopsis');
         
         $Film->save();
-        
+        session()->flash('message', 'The film has been updated.....');
         return redirect ('/Films');
     }
 
@@ -123,6 +123,9 @@ class FilmController extends Controller
     public function destroy(Film $Film)
     {
          $Film->delete();
+         session()->flash('message', 'The film has been deleted.....');
          return redirect('/Films');
     }
+    
+  
 }

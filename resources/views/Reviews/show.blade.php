@@ -25,9 +25,13 @@
 <ul>
 
 @foreach ($review->adjustments as $user)
-    <li>{{ $user->email }} - {{ $user->pivot->updated_at->diffForHumans() }}</li>
+    <li>
+     {{ $user->email }} - {{ $user->pivot->updated_at->diffForHumans() }} 
+    </li>
 
 @endforeach
+
+
 </ul>
 
 

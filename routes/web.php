@@ -33,3 +33,5 @@ Auth::loginUsingId(1);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/snacks', 'PageController@snacks');
