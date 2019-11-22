@@ -16,15 +16,27 @@
 <br>
 <br>
 <br>
+<div class="content">
 <h1>{{ $post->title }} </h1>
 
-<div>{{$post->body }}</div>
+{{$post->body }} </div>
+<div class="content">
+
+@if ($post->Comments->count())
+<h2>Comments</h2>
 
 
-<hr>
-<ul>
+<div> @foreach($post->Comments as $comment)
+    <li>
+        
+        {{ $comment->title }}  <br>
+        {{ $comment->body }}
+    </li>
+@endforeach</div>
+
+
+@endif
 
 
 
-
-</ul>
+</div>

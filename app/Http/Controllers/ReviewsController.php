@@ -16,6 +16,7 @@ class ReviewsController extends Controller
     {
         
           $reviews = Review::all();
+          
         
         return view('Reviews.index', compact('reviews'));
     }

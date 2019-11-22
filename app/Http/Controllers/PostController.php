@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Comments;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -49,8 +50,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-      
-          return view('Posts.show')->withPost($post);
+        $comments = Comments::all();
+        $users = User::all();
+        
+          return view('Posts.show')->withPost($post)->withComments($comments)->withUser($users);
     }
 
     /**

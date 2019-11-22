@@ -88,7 +88,7 @@
                     <a href="/reviews">Reviews</a>
                     <a href="/about">About</a>
                     <a href="/snacks">Snacks</a>
-                    <a href="/test">Test</a>
+                    <a href="/posts">Posts</a>
                     <a href="/subscribe">Purchase Subscription</a>
                     
                 </div>
