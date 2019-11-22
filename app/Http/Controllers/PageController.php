@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Notifications\FilmSubscriptionPurchased;
 use App\User;
+use App\Post;
 
 class PageController extends Controller
 {
@@ -66,6 +68,8 @@ public function subscribe(){
     return view('welcome');
     
 }  
+
+
     
     
 }

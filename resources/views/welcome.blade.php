@@ -87,6 +87,8 @@
                     <a href="/Films">Films</a>
                     <a href="/reviews">Reviews</a>
                     <a href="/about">About</a>
+                    <a href="/snacks">Snacks</a>
+                    <a href="/test">Test</a>
                     <a href="/subscribe">Purchase Subscription</a>
                     
                 </div>

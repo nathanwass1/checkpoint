@@ -29,9 +29,13 @@ Route::patch('/Orders/{Order}', 'OrderController@update');
 
 Route::resource('reviews', 'ReviewsController');
 
-Auth::loginUsingId(1);
+Route::resource('posts', 'PostController');
+
+//Auth::loginUsingId(1);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/snacks', 'PageController@snacks');
+
+Route::get('/test', 'PageController@test');
