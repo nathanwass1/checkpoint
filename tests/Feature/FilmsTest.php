@@ -3,12 +3,13 @@
 namespace Tests\Feature;
 use App\Film;
 use Tests\TestCase;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FilmsTest extends TestCase
 {
-    use RefreshDatabase;
+    //use RefreshDatabase;
     /**
      * A basic test example.
      *

@@ -58,6 +58,7 @@ class FilmController extends Controller
         $Film = Film::create($validated);
        event(new FilmCreated($Film));
        session()->flash('message', 'The film has been created...');
+       
         return redirect ('/Films');
     }
 
@@ -78,6 +79,7 @@ class FilmController extends Controller
        if(\Gate::denies('view', $Film)){
            abort(403);
        }
+       
        
         return view('Films.show', compact('Film'));
     }

@@ -33,9 +33,13 @@ Route::resource('posts', 'PostController');
 
 //Auth::loginUsingId(1);
 Auth::routes();
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/snacks', 'PageController@snacks');
 
 Route::get('/test', 'PageController@test');
+
+//Route::get('login', 'Auth.LoginController');

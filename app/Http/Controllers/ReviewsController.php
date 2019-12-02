@@ -9,6 +9,10 @@ use App\Review;
 class ReviewsController extends Controller
 {
     public function show(Review $review){
+        
+        
+        
+        
         return view('Reviews.show')->withReview($review);
     }
     

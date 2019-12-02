@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Socialite;
+use App\GitUser;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -25,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/Films';
+    //protected $redirectTo = '/Films';
 
     /**
      * Create a new controller instance.
@@ -36,4 +39,37 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-}
+    
+     public function redirectToProvider()
+    {
+        return Socialite::driver('github')->redirect();
+    }
+    
+     public function handleProviderCallback()
+    {   
+       $user = $this->findOrCreateGitHubUser(
+       Socialite::driver('github')->user()
+       );
+       
+       //auth()->login($user);
+       
+       return redirect('/');
+    }
+    
+    protected function findOrCreateGitHubUser($githubuser){
+      $user = GitUser::firstOrNew(['github_id' => $githubuser->id]) ; 
+      
+      if($user->exists) return $user;
+          
+      $user->fill([
+      'nickname' => $githubuser->nickname,
+      'email' => $githubuser->email,
+      'avatar' => $githubuser->avatar
+      ])->save();  
+          
+          return $user;
+      }
+        
+    }
+    
+
