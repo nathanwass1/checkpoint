@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Notifications\FilmSubscriptionPurchased;
 use App\User;
 use App\Post;
+use App\Events\SubscribeStatusUpdated;
 
 class PageController extends Controller
 {
@@ -62,14 +63,22 @@ public function welcome(){
     return view('welcome'); 
 }
 
+public function vue(){
+  
+    return view('vue'); 
+}
+
 public function subscribe(){
     $user = User::first();
     $user->notify(new FilmSubscriptionPurchased);
+    SubscribeStatusUpdated::dispatch();
     return view('welcome');
     
 }  
 
-
+public function events (){
+    	return view ('events.index');
+    }
     
     
 }

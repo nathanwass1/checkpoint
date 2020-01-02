@@ -1,5 +1,5 @@
 <?php
-
+use Symfony\Component\Finder\Finder;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,8 @@ Route::get('/', 'PageController@welcome');
 Route::get('/subscribe', 'PageController@subscribe');
 
 Route::get('/contacts', 'PageController@contacts');
+
+Route::get('/vue', 'PageController@vue');
 
 Route::get('/about', 'PageController@about');
 
@@ -43,3 +45,20 @@ Route::get('/snacks', 'PageController@snacks');
 Route::get('/test', 'PageController@test');
 
 //Route::get('login', 'Auth.LoginController');
+
+Route::get('/events', 'PageController@events');
+
+/*Route::get('/', function(){
+    
+    $files = Finder::create()
+    ->in(app_path())
+    ->name('*.php')
+    ->contains('User');
+    
+    foreach ($files as $file){
+        
+        var_dump($file->getRealPath());
+    }
+    
+});     */
+

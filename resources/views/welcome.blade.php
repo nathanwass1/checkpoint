@@ -94,5 +94,6 @@
                 </div>
             </div>
         </div>
+        <script> src="/resources/assets/js/app.js"</script>
     </body>
 </html>
