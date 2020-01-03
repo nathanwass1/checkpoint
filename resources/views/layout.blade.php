@@ -3,6 +3,7 @@
 <head>
 	<title>@yield('title', 'Film Site ')</title>
 <link rel ="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css">
 @yield('style') 
 
      <style>
@@ -76,7 +77,9 @@
         <li><a href="/Films">Films Page</a></li>
         <li><a href="/about">About Page</a></li>
         <li><a href="/Films/create">Add A Film </a></li>
+
     </div>
+   
 @yield('Content')
 </body>
 </html>

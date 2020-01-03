@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css">
 @section('content')
 <div class="container">
     <div class="row">
@@ -15,9 +15,16 @@
                     @endif
 
                     You are logged in!
+                    
+                
+                    
                 </div>
             </div>
         </div>
+        <modal> </modal>
     </div>
+    <message title ="Cookie Notice" body="This website uses cookies in order to track your browsing habits."> </message>
+  
 </div>
+
 @endsection

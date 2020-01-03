@@ -43,7 +43,7 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
-import Echo from 'laravel-echo'
+import Echo from 'laravel-echo';
 
 window.Pusher = require('pusher-js');
 
@@ -53,3 +53,9 @@ window.Echo = new Echo({
      cluster: 'eu',
      encrypted: true
  });
+
+window.Echo.channel('subscriptions')
+    .listen('SubscribeStatusUpdated', e=> {
+        console.log('Subscribe status has been updated BEHIND THE SCENES.');
+        console.log(e);
+    });

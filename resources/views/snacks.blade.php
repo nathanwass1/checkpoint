@@ -1,5 +1,5 @@
 @extends('layout')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css">
 @if (Route::has('login'))
     <div class="top-right links">
         @auth
@@ -37,7 +37,9 @@
 <p><strong>Meerkat Savings: </strong>&pound; {{ $totalDiscount }} </p>
 <p><strong>Price with Meerkat Deal: </strong>&pound; {{ $finalPrice }} </p>
 
-
+</div>
+    <message title ="Cookie Notice" body="This website uses cookies in order to track your browsing habits."> </message>
+</div>
 
 
 

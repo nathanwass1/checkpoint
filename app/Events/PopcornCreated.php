@@ -9,22 +9,20 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use App\Http\Controllers\PageController;
 
-class SubscribeStatusUpdated implements ShouldBroadcast
+class PopcornCreated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     
-    public $subscribe;
-
+    public $task;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($subscribe)
+    public function __construct($popcorn)
     {
-        $this->subscribe = $subscribe;
+        $this->task = $task;
     }
 
     /**
@@ -34,7 +32,6 @@ class SubscribeStatusUpdated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('subscriptions');
-       //return new PrivateChannel('channel-name');
+        return new Channel('popcorn');
     }
 }

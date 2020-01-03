@@ -11,6 +11,8 @@ use App\Events\SubscribeStatusUpdated;
 
 class PageController extends Controller
 {
+  
+    
      public function contacts (){
     	return view ('contacts');
     }
@@ -68,10 +70,12 @@ public function vue(){
     return view('vue'); 
 }
 
+
+
 public function subscribe(){
     $user = User::first();
     $user->notify(new FilmSubscriptionPurchased);
-    SubscribeStatusUpdated::dispatch();
+    
     return view('welcome');
     
 }  

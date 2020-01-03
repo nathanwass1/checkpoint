@@ -1,5 +1,8 @@
 <?php
 use Symfony\Component\Finder\Finder;
+use App\Events\SubscribeStatusUpdated;
+use App\Events\PopcornCreated;
+use App\popcorn;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,13 +16,15 @@ use Symfony\Component\Finder\Finder;
 
 Route::get('/', 'PageController@welcome');
 
-Route::get('/subscribe', 'PageController@subscribe');
+//Route::get('/subscribe', 'PageController@subscribe');
 
 Route::get('/contacts', 'PageController@contacts');
 
 Route::get('/vue', 'PageController@vue');
 
 Route::get('/about', 'PageController@about');
+
+
 
 Route::resource('Films', 'FilmController');
 
@@ -48,6 +53,16 @@ Route::get('/test', 'PageController@test');
 
 Route::get('/events', 'PageController@events');
 
+Route::get('/popcorn', function (){
+   return popcorn::latest()->pluck('body'); 
+});
+
+Route::post('/popcorn', function(){
+   $popcorn = popcorn::forceCreate(request(['body'])); 
+   
+   event(new PopcornCreated($popcorn));
+});
+
 /*Route::get('/', function(){
     
     $files = Finder::create()
@@ -61,4 +76,16 @@ Route::get('/events', 'PageController@events');
     }
     
 });     */
+
+class Subscribe{
+      public $id;
+    
+    public function __construct($id){
+        $this->id =$id;
+    }
+}
+
+Route::get('/subscribe', function(){
+      SubscribeStatusUpdated::dispatch(new Subscribe(1));
+});
 
