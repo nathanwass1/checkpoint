@@ -14,7 +14,7 @@ class PopcornCreated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     
-    public $task;
+    public $popcorn;
     /**
      * Create a new event instance.
      *
@@ -22,7 +22,7 @@ class PopcornCreated implements ShouldBroadcast
      */
     public function __construct($popcorn)
     {
-        $this->task = $task;
+        $this->popcorn = $popcorn;
     }
 
     /**

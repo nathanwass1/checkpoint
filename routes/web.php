@@ -60,7 +60,7 @@ Route::get('/popcorn', function (){
 Route::post('/popcorn', function(){
    $popcorn = popcorn::forceCreate(request(['body'])); 
    
-   event(new PopcornCreated($popcorn));
+   event(new PopcornCreated($popcorn))->dontBroadcastToCurrentUser;
 });
 
 /*Route::get('/', function(){

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePopcornTable extends Migration
+class CreatePopcornsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePopcornTable extends Migration
      */
     public function up()
     {
-        Schema::create('popcorn', function (Blueprint $table) {
+        Schema::create('popcorns', function (Blueprint $table) {
             $table->increments('id');
             $table->text('body');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreatePopcornTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('popcorn');
+        Schema::dropIfExists('popcorns');
     }
 }

@@ -24,6 +24,11 @@
         
         created(){
             axios.get('/popcorn').then(response => (this.popcorn = response.data));
+            
+            window.Echo.channel('popcorn').listen('PopcornCreated', e => {
+                
+                this.popcorn.push(e.popcorn.body);
+            });
         },
         
         methods: {

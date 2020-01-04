@@ -55421,7 +55421,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -55459,6 +55459,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         axios.get('/popcorn').then(function (response) {
             return _this.popcorn = response.data;
+        });
+
+        window.Echo.channel('popcorn').listen('PopcornCreated', function (e) {
+
+            _this.popcorn.push(e.popcorn.body);
         });
     },
 
